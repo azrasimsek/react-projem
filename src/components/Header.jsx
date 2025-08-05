@@ -1,3 +1,3 @@
 export default function Header() {
-  return <h1 className="text-center">Shopping List</h1>;
+  return <h1 className="text-center">Alışveriş Listesi</h1>;
 }
