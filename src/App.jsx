@@ -5,7 +5,6 @@ import Header from "./components/Header";
 import AddItemForm from "./components/AddItemForm";
 import FilterButtons from "./components/FilterButtons";
 import ListItems from "./components/ListItems";
-import ClearButton from "./components/ClearButton";
 import { useState } from "react";
 
 const urunler = [
@@ -17,9 +16,11 @@ const urunler = [
 
 export default function App() {
   const [items, setItems] = useState(urunler);
+  const [filterButton, setFilterButton] = useState("all");
 
   function handleAddItem(newItem) {
     setItems([...items, newItem]);
+    setFilterButton("all");
   }
 
   function handleDeleteItem(id) {
@@ -34,17 +35,29 @@ export default function App() {
     );
   }
 
+  function handleClearItems() {
+    setItems([]);
+    setFilterButton("all");
+  }
+
   return (
     <div className="container">
       <Header />
       <AddItemForm onAddItem={handleAddItem} />
-      <FilterButtons />
+      {items.length > 0 && (
+        <FilterButtons
+          filterButton={filterButton}
+          setFilterButton={setFilterButton}
+          onClearItems={handleClearItems}
+        />
+      )}
+
       <ListItems
         urunler={items}
         onDeleteItem={handleDeleteItem}
         onUpdateItem={handleUpdateItem}
+        filterButton={filterButton}
       />
-      <ClearButton />
     </div>
   );
 }

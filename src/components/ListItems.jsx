@@ -1,6 +1,11 @@
 import Item from "./Item";
 import NoItem from "./NoItem";
-export default function ListItems({ urunler, onDeleteItem, onUpdateItem }) {
+export default function ListItems({
+  urunler,
+  onDeleteItem,
+  onUpdateItem,
+  filterButton,
+}) {
   return (
     <ul className="shopping-list list-unstyled">
       {urunler.length > 0 ? (
@@ -10,6 +15,7 @@ export default function ListItems({ urunler, onDeleteItem, onUpdateItem }) {
             urun={urun}
             onDeleteItem={onDeleteItem}
             onUpdateItem={onUpdateItem}
+            filterButton={filterButton}
           />
         ))
       ) : (

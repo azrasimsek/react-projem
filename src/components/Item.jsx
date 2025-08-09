@@ -1,7 +1,15 @@
-function Item({ urun, onDeleteItem, onUpdateItem }) {
+function Item({ urun, onDeleteItem, onUpdateItem, filterButton }) {
   function handleDelete() {
     onDeleteItem(urun.id);
   }
+
+  if (filterButton == "completed" && !urun.completed) {
+    return null;
+  }
+  if (filterButton == "incomplete" && urun.completed) {
+    return null;
+  }
+
   return (
     <li className="border rounded p-2 mb-1 d-flex">
       <input
