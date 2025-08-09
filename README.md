@@ -1,12 +1,58 @@
-# React + Vite
+# Alışveriş Listesi Uygulaması
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React ve Vite kullanılarak geliştirilmiş basit bir alışveriş listesi uygulaması.
 
-Currently, two official plugins are available:
+## Özellikler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Listeye yeni ürün ekleme
+- Ürünleri silme 
+- Ürünleri tamamlandı/tamamlanmadı olarak işaretleme
+- Ürünleri filtreleme:
+  - Tümünü göster
+  - Tamamlananları göster
+  - Tamamlanmayanları göster
+- Tüm listeyi temizleme
 
-## Expanding the ESLint configuration
+## Kullanılan Teknolojiler
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React 19
+- Vite 6
+- Bootstrap 5
+- Bootstrap Icons
+
+## Kurulum
+
+1. Projeyi klonlayın:
+```bash
+git clone [repo-url]
+```
+
+2. Bağımlılıkları yükleyin:
+```bash
+npm install
+```
+
+3. Geliştirme modunda çalıştırın:
+```bash
+npm run dev
+```
+
+4. Projeyi build alın:
+```bash
+npm run build
+```
+
+## Proje Yapısı
+
+```
+src/
+  ├── components/         # React bileşenleri
+  │   ├── AddItemForm    # Yeni ürün ekleme formu
+  │   ├── FilterButtons  # Filtreleme butonları
+  │   ├── Header        # Sayfa başlığı
+  │   ├── Item          # Tekil ürün komponenti
+  │   ├── ListItems     # Ürün listesi
+  │   └── NoItem        # Boş liste durumu
+  ├── App.jsx           # Ana uygulama bileşeni
+  └── main.jsx          # Uygulama giriş noktası
+```
